@@ -3,6 +3,7 @@
 # それ以降はもう一度実行
 
 import sys              # 実行環境に関するライブラリ
+import random           # 疑似乱数生成ライブラリ
 import numpy as np      # 多次元配列などを扱うライブラリ
 import sympy            # 代数演算ライブラリ
 
@@ -84,11 +85,18 @@ binmoji = ''.join(list_1)          # join関数でlist_1の各要素を文字列
 
 nagasa_2 = len(binmoji)            # 2進数化した文字列の長さ
 
-# 動作確認用
+hirabun = binmoji     # 後で使う用に、2進数化した平文を変数に保存
+
 print('平文の、ASCIIコードによる2進数化')
 print(binmoji)
 print('')
 
+ransu_list = []
+for i in range(128):
+    ransu_list.append(str(random.randint(0, 1)))
+k0 = ''.join(ransu_list)
+
+binmoji = k0
 
 ###################################
 # サブ鍵生成アルゴリズム
@@ -1358,6 +1366,8 @@ binmoji = k10     # binmojiの更新
 print('10個目のサブ鍵 k10')
 print(k10)
 
+k10_subkey = k10    # 後で変数名が被らないようにするため
+
 print('サブ鍵生成を終了します。')
 print('')
 
@@ -1366,3 +1376,7996 @@ print('')
 ###################################
 # データ暗号化アルゴリズム
 ###################################
+
+# 状態行列の各要素の定義
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(hirabun[i])
+s00 = ''.join(emp_list)
+
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(hirabun[i])
+s10 = ''.join(emp_list)
+
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(hirabun[i])
+s20 = ''.join(emp_list)
+
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(hirabun[i])
+s30 = ''.join(emp_list)
+
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(hirabun[i])
+s01 = ''.join(emp_list)
+
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(hirabun[i])
+s11 = ''.join(emp_list)
+
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(hirabun[i])
+s21 = ''.join(emp_list)
+
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(hirabun[i])
+s31 = ''.join(emp_list)
+
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(hirabun[i])
+s02 = ''.join(emp_list)
+
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(hirabun[i])
+s12 = ''.join(emp_list)
+
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(hirabun[i])
+s22 = ''.join(emp_list)
+
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(hirabun[i])
+s32 = ''.join(emp_list)
+
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(hirabun[i])
+s03 = ''.join(emp_list)
+
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(hirabun[i])
+s13 = ''.join(emp_list)
+
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(hirabun[i])
+s23 = ''.join(emp_list)
+
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(hirabun[i])
+s33 = ''.join(emp_list)
+
+# k0の行列の各要素の定義 
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k0[i])
+k00 = ''.join(emp_list)
+
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k0[i])
+k10 = ''.join(emp_list)
+
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k0[i])
+k20 = ''.join(emp_list)
+
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k0[i])
+k30 = ''.join(emp_list)
+
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k0[i])
+k01 = ''.join(emp_list)
+
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k0[i])
+k11 = ''.join(emp_list)
+
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k0[i])
+k21 = ''.join(emp_list)
+
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k0[i])
+k31 = ''.join(emp_list)
+
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k0[i])
+k02 = ''.join(emp_list)
+
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k0[i])
+k12 = ''.join(emp_list)
+
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k0[i])
+k22 = ''.join(emp_list)
+
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k0[i])
+k32 = ''.join(emp_list)
+
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k0[i])
+k03 = ''.join(emp_list)
+
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k0[i])
+k13 = ''.join(emp_list)
+
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k0[i])
+k23 = ''.join(emp_list)
+
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k0[i])
+k33 = ''.join(emp_list)
+
+
+######### AddRoundKey(s, k0) ########
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+# ステップ4(テキスト)
+
+####################
+# i = 1
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []                 
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k1行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k1[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k1[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k1[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k1[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k1[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k1[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k1[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k1[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k1[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k1[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k1[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k1[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k1[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k1[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k1[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k1[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 2
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k2行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k2[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k2[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k2[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k2[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k2[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k2[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k2[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k2[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k2[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k2[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k2[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k2[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k2[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k2[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k2[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k2[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 3
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k3行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k3[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k3[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k3[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k3[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k3[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k3[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k3[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k3[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k3[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k3[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k3[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k3[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k3[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k3[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k3[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k3[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 4
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k4行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k4[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k4[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k4[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k4[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k4[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k4[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k4[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k4[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k4[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k4[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k4[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k4[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k4[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k4[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k4[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k4[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 5
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k5行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k5[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k5[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k5[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k5[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k5[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k5[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k5[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k5[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k5[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k5[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k5[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k5[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k5[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k5[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k5[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k5[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 6
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k6行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k6[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k6[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k6[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k6[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k6[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k6[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k6[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k6[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k6[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k6[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k6[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k6[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k6[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k6[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k6[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k6[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 7
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k7行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k7[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k7[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k7[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k7[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k7[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k7[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k7[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k7[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k7[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k7[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k7[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k7[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k7[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k7[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k7[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k7[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 8
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k8行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k8[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k8[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k8[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k8[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k8[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k8[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k8[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k8[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k8[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k8[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k8[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k8[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k8[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k8[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k8[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k8[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 9
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# MixColumns(s)
+# 元のsの各要素を10進数に戻す
+s00_sr_10 = (int(s00_sr[0]))*2**7 + (int(s00_sr[1]))*2**6 + (int(s00_sr[2]))*2**5 + (int(s00_sr[3]))*2**4 + (int(s00_sr[4]))*2**3 + (int(s00_sr[5]))*2**2 + (int(s00_sr[6]))*2**1 + (int(s00_sr[7]))*2**0
+s01_sr_10 = (int(s01_sr[0]))*2**7 + (int(s01_sr[1]))*2**6 + (int(s01_sr[2]))*2**5 + (int(s01_sr[3]))*2**4 + (int(s01_sr[4]))*2**3 + (int(s01_sr[5]))*2**2 + (int(s01_sr[6]))*2**1 + (int(s01_sr[7]))*2**0
+s02_sr_10 = (int(s02_sr[0]))*2**7 + (int(s02_sr[1]))*2**6 + (int(s02_sr[2]))*2**5 + (int(s02_sr[3]))*2**4 + (int(s02_sr[4]))*2**3 + (int(s02_sr[5]))*2**2 + (int(s02_sr[6]))*2**1 + (int(s02_sr[7]))*2**0
+s03_sr_10 = (int(s03_sr[0]))*2**7 + (int(s03_sr[1]))*2**6 + (int(s03_sr[2]))*2**5 + (int(s03_sr[3]))*2**4 + (int(s03_sr[4]))*2**3 + (int(s03_sr[5]))*2**2 + (int(s03_sr[6]))*2**1 + (int(s03_sr[7]))*2**0
+s10_sr_10 = (int(s10_sr[0]))*2**7 + (int(s10_sr[1]))*2**6 + (int(s10_sr[2]))*2**5 + (int(s10_sr[3]))*2**4 + (int(s10_sr[4]))*2**3 + (int(s10_sr[5]))*2**2 + (int(s10_sr[6]))*2**1 + (int(s10_sr[7]))*2**0
+s11_sr_10 = (int(s11_sr[0]))*2**7 + (int(s11_sr[1]))*2**6 + (int(s11_sr[2]))*2**5 + (int(s11_sr[3]))*2**4 + (int(s11_sr[4]))*2**3 + (int(s11_sr[5]))*2**2 + (int(s11_sr[6]))*2**1 + (int(s11_sr[7]))*2**0
+s12_sr_10 = (int(s12_sr[0]))*2**7 + (int(s12_sr[1]))*2**6 + (int(s12_sr[2]))*2**5 + (int(s12_sr[3]))*2**4 + (int(s12_sr[4]))*2**3 + (int(s12_sr[5]))*2**2 + (int(s12_sr[6]))*2**1 + (int(s12_sr[7]))*2**0
+s13_sr_10 = (int(s13_sr[0]))*2**7 + (int(s13_sr[1]))*2**6 + (int(s13_sr[2]))*2**5 + (int(s13_sr[3]))*2**4 + (int(s13_sr[4]))*2**3 + (int(s13_sr[5]))*2**2 + (int(s13_sr[6]))*2**1 + (int(s13_sr[7]))*2**0
+s20_sr_10 = (int(s20_sr[0]))*2**7 + (int(s20_sr[1]))*2**6 + (int(s20_sr[2]))*2**5 + (int(s20_sr[3]))*2**4 + (int(s20_sr[4]))*2**3 + (int(s20_sr[5]))*2**2 + (int(s20_sr[6]))*2**1 + (int(s20_sr[7]))*2**0
+s21_sr_10 = (int(s21_sr[0]))*2**7 + (int(s21_sr[1]))*2**6 + (int(s21_sr[2]))*2**5 + (int(s21_sr[3]))*2**4 + (int(s21_sr[4]))*2**3 + (int(s21_sr[5]))*2**2 + (int(s21_sr[6]))*2**1 + (int(s21_sr[7]))*2**0
+s22_sr_10 = (int(s22_sr[0]))*2**7 + (int(s22_sr[1]))*2**6 + (int(s22_sr[2]))*2**5 + (int(s22_sr[3]))*2**4 + (int(s22_sr[4]))*2**3 + (int(s22_sr[5]))*2**2 + (int(s22_sr[6]))*2**1 + (int(s22_sr[7]))*2**0
+s23_sr_10 = (int(s23_sr[0]))*2**7 + (int(s23_sr[1]))*2**6 + (int(s23_sr[2]))*2**5 + (int(s23_sr[3]))*2**4 + (int(s23_sr[4]))*2**3 + (int(s23_sr[5]))*2**2 + (int(s23_sr[6]))*2**1 + (int(s23_sr[7]))*2**0
+s30_sr_10 = (int(s30_sr[0]))*2**7 + (int(s30_sr[1]))*2**6 + (int(s30_sr[2]))*2**5 + (int(s30_sr[3]))*2**4 + (int(s30_sr[4]))*2**3 + (int(s30_sr[5]))*2**2 + (int(s30_sr[6]))*2**1 + (int(s30_sr[7]))*2**0
+s31_sr_10 = (int(s31_sr[0]))*2**7 + (int(s31_sr[1]))*2**6 + (int(s31_sr[2]))*2**5 + (int(s31_sr[3]))*2**4 + (int(s31_sr[4]))*2**3 + (int(s31_sr[5]))*2**2 + (int(s31_sr[6]))*2**1 + (int(s31_sr[7]))*2**0
+s32_sr_10 = (int(s32_sr[0]))*2**7 + (int(s32_sr[1]))*2**6 + (int(s32_sr[2]))*2**5 + (int(s32_sr[3]))*2**4 + (int(s32_sr[4]))*2**3 + (int(s32_sr[5]))*2**2 + (int(s32_sr[6]))*2**1 + (int(s32_sr[7]))*2**0
+s33_sr_10 = (int(s33_sr[0]))*2**7 + (int(s33_sr[1]))*2**6 + (int(s33_sr[2]))*2**5 + (int(s33_sr[3]))*2**4 + (int(s33_sr[4]))*2**3 + (int(s33_sr[5]))*2**2 + (int(s33_sr[6]))*2**1 + (int(s33_sr[7]))*2**0
+# これを基に、MixColumns後の各要素(例外処理を除く)を計算する
+s00 = 2*(s00_sr_10) + 3*(s10_sr_10) + 1*(s20_sr_10) + 1*(s30_sr_10)
+s01 = 2*(s01_sr_10) + 3*(s11_sr_10) + 1*(s21_sr_10) + 1*(s31_sr_10)
+s02 = 2*(s02_sr_10) + 3*(s12_sr_10) + 1*(s22_sr_10) + 1*(s32_sr_10)
+s03 = 2*(s03_sr_10) + 3*(s13_sr_10) + 1*(s23_sr_10) + 1*(s33_sr_10)
+s10 = 1*(s00_sr_10) + 2*(s10_sr_10) + 3*(s20_sr_10) + 1*(s30_sr_10)
+s11 = 1*(s01_sr_10) + 2*(s11_sr_10) + 3*(s21_sr_10) + 1*(s31_sr_10)
+s12 = 1*(s02_sr_10) + 2*(s12_sr_10) + 3*(s22_sr_10) + 1*(s33_sr_10)
+s13 = 1*(s03_sr_10) + 2*(s13_sr_10) + 3*(s23_sr_10) + 1*(s33_sr_10)
+s20 = 1*(s00_sr_10) + 1*(s10_sr_10) + 2*(s20_sr_10) + 3*(s30_sr_10)
+s21 = 1*(s01_sr_10) + 1*(s11_sr_10) + 2*(s21_sr_10) + 3*(s31_sr_10)
+s22 = 1*(s02_sr_10) + 1*(s12_sr_10) + 2*(s22_sr_10) + 3*(s32_sr_10)
+s23 = 1*(s03_sr_10) + 1*(s13_sr_10) + 2*(s23_sr_10) + 3*(s33_sr_10)
+s30 = 3*(s00_sr_10) + 1*(s10_sr_10) + 1*(s20_sr_10) + 2*(s30_sr_10)
+s31 = 3*(s01_sr_10) + 1*(s11_sr_10) + 1*(s21_sr_10) + 2*(s31_sr_10)
+s32 = 3*(s02_sr_10) + 1*(s12_sr_10) + 1*(s22_sr_10) + 2*(s32_sr_10)
+s33 = 3*(s03_sr_10) + 1*(s13_sr_10) + 1*(s23_sr_10) + 2*(s33_sr_10)
+# 0bを付けない形式の2進数に直す
+s00 = format(s00, 'b')
+s01 = format(s01, 'b')
+s02 = format(s02, 'b')
+s03 = format(s03, 'b')
+s10 = format(s10, 'b')
+s11 = format(s11, 'b')
+s12 = format(s12, 'b')
+s13 = format(s13, 'b')
+s20 = format(s20, 'b')
+s21 = format(s21, 'b')
+s22 = format(s22, 'b')
+s23 = format(s23, 'b')
+s30 = format(s30, 'b')
+s31 = format(s31, 'b')
+s32 = format(s32, 'b')
+s33 = format(s33, 'b')
+# 8桁に満たない場合、先頭に0を付けて8桁に揃える
+if (len(s00) < 8):
+    for i in range(8-len(s00)):
+        s00 = '0' + s00
+if (len(s01) < 8):
+    for i in range(8-len(s01)):
+        s01 = '0' + s01     
+if (len(s02) < 8):
+    for i in range(8-len(s02)):
+        s02 = '0' + s02
+if (len(s03) < 8):
+    for i in range(8-len(s03)):
+        s03 = '0' + s03
+if (len(s10) < 8):
+    for i in range(8-len(s10)):
+        s10 = '0' + s10
+if (len(s11) < 8):
+    for i in range(8-len(s11)):
+        s11 = '0' + s11
+if (len(s12) < 8):
+    for i in range(8-len(s12)):
+        s12 = '0' + s12
+if (len(s13) < 8):
+    for i in range(8-len(s13)):
+        s13 = '0' + s13
+if (len(s20) < 8):
+    for i in range(8-len(s20)):
+        s20 = '0' + s20
+if (len(s21) < 8):
+    for i in range(8-len(s21)):
+        s21 = '0' + s21
+if (len(s22) < 8):
+    for i in range(8-len(s22)):
+        s22 = '0' + s22
+if (len(s23) < 8):
+    for i in range(8-len(s23)):
+        s23 = '0' + s23
+if (len(s30) < 8):
+    for i in range(8-len(s30)):
+        s30 = '0' + s30
+if (len(s31) < 8):
+    for i in range(8-len(s31)):
+        s31 = '0' + s31
+if (len(s32) < 8):
+    for i in range(8-len(s32)):
+        s32 = '0' + s32
+if (len(s33) < 8):
+    for i in range(8-len(s33)):
+        s33 = '0' + s33
+# 例外処理
+##########
+# s00
+##########
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+m_x = '100011011'
+if (len(s00) >= len(m_x)):
+    for i in range(len(s00) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s00, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s00 = ''.join(xor_new)
+    s00 = s00[1:]
+
+##########
+# s01
+##########
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+m_x = '100011011'
+if (len(s01) >= len(m_x)):
+    for i in range(len(s01) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s01, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s01 = ''.join(xor_new)
+    s01 = s01[1:]
+
+##########
+# s02
+##########
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+m_x = '100011011'
+if (len(s02) >= len(m_x)):
+    for i in range(len(s02) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s02, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s02 = ''.join(xor_new)
+    s02 = s02[1:]
+
+##########
+# s03
+##########
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+m_x = '100011011'
+if (len(s03) >= len(m_x)):
+    for i in range(len(s03) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s03, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s03 = ''.join(xor_new)
+    s03 = s03[1:]
+
+##########
+# s10
+##########
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+m_x = '100011011'
+if (len(s10) >= len(m_x)):
+    for i in range(len(s10) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s10, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s10 = ''.join(xor_new)
+    s10 = s10[1:]
+
+##########
+# s11
+##########
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+m_x = '100011011'
+if (len(s11) >= len(m_x)):
+    for i in range(len(s11) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s11, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s11 = ''.join(xor_new)
+    s11 = s11[1:]
+
+##########
+# s12
+##########
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+m_x = '100011011'
+if (len(s12) >= len(m_x)):
+    for i in range(len(s12) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s12, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s12 = ''.join(xor_new)
+    s12 = s12[1:]
+
+##########
+# s13
+##########
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+m_x = '100011011'
+if (len(s13) >= len(m_x)):
+    for i in range(len(s13) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s13, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s13 = ''.join(xor_new)
+    s13 = s13[1:]
+
+##########
+# s20
+##########
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+m_x = '100011011'
+if (len(s20) >= len(m_x)):
+    for i in range(len(s20) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s20, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s20 = ''.join(xor_new)
+    s20 = s20[1:]
+
+##########
+# s21
+##########
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+m_x = '100011011'
+if (len(s21) >= len(m_x)):
+    for i in range(len(s21) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s21, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s21 = ''.join(xor_new)
+    s21 = s21[1:]
+
+##########
+# s22
+##########
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+m_x = '100011011'
+if (len(s22) >= len(m_x)):
+    for i in range(len(s22) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s22, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s22 = ''.join(xor_new)
+    s22 = s22[1:]
+
+##########
+# s23
+##########
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+m_x = '100011011'
+if (len(s23) >= len(m_x)):
+    for i in range(len(s23) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s23, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s23 = ''.join(xor_new)
+    s23 = s23[1:]
+
+##########
+# s30
+##########
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+m_x = '100011011'
+if (len(s30) >= len(m_x)):
+    for i in range(len(s30) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s30, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s30 = ''.join(xor_new)
+    s30 = s30[1:]
+
+##########
+# s31
+##########
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+m_x = '100011011'
+if (len(s31) >= len(m_x)):
+    for i in range(len(s31) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s31, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s31 = ''.join(xor_new)
+    s31 = s31[1:]
+
+##########
+# s32
+##########
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+m_x = '100011011'
+if (len(s32) >= len(m_x)):
+    for i in range(len(s32) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s32, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s32 = ''.join(xor_new)
+    s32 = s32[1:]
+
+##########
+# s33
+##########
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+m_x = '100011011'
+if (len(s33) >= len(m_x)):
+    for i in range(len(s33) - len(m_x)):
+        m_x = m_x + '0'
+    xor = [ord(a) ^ ord(b) for a,b in zip(s33, m_x)]
+    xor_new = []
+    for i in range(len(m_x)):
+        xor_new.append(str(xor[i]))
+    s33 = ''.join(xor_new)
+    s33 = s33[1:]
+# これにてMixColumnsが終了
+
+# AddRoundKey(s, ki)
+# k9行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k9[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k9[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k9[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k9[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k9[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k9[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k9[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k9[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k9[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k9[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k9[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k9[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k9[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k9[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k9[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k9[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+
+
+####################
+# i = 10 (最終ラウンド)
+####################
+# SubBytes(s)
+s00 = sbox[s00]
+s10 = sbox[s10]
+s20 = sbox[s20]
+s30 = sbox[s30]
+s01 = sbox[s01]
+s11 = sbox[s11]
+s21 = sbox[s21]
+s31 = sbox[s31]
+s02 = sbox[s02]
+s12 = sbox[s12]
+s22 = sbox[s22]
+s32 = sbox[s32]
+s03 = sbox[s03]
+s13 = sbox[s13]
+s23 = sbox[s23]
+s33 = sbox[s33]
+
+# ShiftRows(s)
+s00_sr = s00
+s01_sr = s01
+s02_sr = s02
+s03_sr = s03
+s10_sr = s11
+s11_sr = s12
+s12_sr = s13
+s13_sr = s10
+s20_sr = s22
+s21_sr = s23
+s22_sr = s20
+s23_sr = s21
+s30_sr = s33
+s31_sr = s30
+s32_sr = s31
+s33_sr = s32
+
+# AddRoundKey(s, ki)
+# k10行列の各要素を取得
+emp_list = []
+for i in range(0, 8):
+    emp_list.append(k10_subkey[i])
+k00 = ''.join(emp_list)
+emp_list = []
+for i in range(8, 16):
+    emp_list.append(k10_subkey[i])
+k10 = ''.join(emp_list)
+emp_list = []
+for i in range(16, 24):
+    emp_list.append(k10_subkey[i])
+k20 = ''.join(emp_list)
+emp_list = []
+for i in range(24, 32):
+    emp_list.append(k10_subkey[i])
+k30 = ''.join(emp_list)
+emp_list = []
+for i in range(32, 40):
+    emp_list.append(k10_subkey[i])
+k01 = ''.join(emp_list)
+emp_list = []
+for i in range(40, 48):
+    emp_list.append(k10_subkey[i])
+k11 = ''.join(emp_list)
+emp_list = []
+for i in range(48, 56):
+    emp_list.append(k10_subkey[i])
+k21 = ''.join(emp_list)
+emp_list = []
+for i in range(56, 64):
+    emp_list.append(k10_subkey[i])
+k31 = ''.join(emp_list)
+emp_list = []
+for i in range(64, 72):
+    emp_list.append(k10_subkey[i])
+k02 = ''.join(emp_list)
+emp_list = []
+for i in range(72, 80):
+    emp_list.append(k10_subkey[i])
+k12 = ''.join(emp_list)
+emp_list = []
+for i in range(80, 88):
+    emp_list.append(k10_subkey[i])
+k22 = ''.join(emp_list)
+emp_list = []
+for i in range(88, 96):
+    emp_list.append(k10_subkey[i])
+k32 = ''.join(emp_list)
+emp_list = []
+for i in range(96, 104):
+    emp_list.append(k10_subkey[i])
+k03 = ''.join(emp_list)
+emp_list = []
+for i in range(104, 112):
+    emp_list.append(k10_subkey[i])
+k13 = ''.join(emp_list)
+emp_list = []
+for i in range(112, 120):
+    emp_list.append(k10_subkey[i])
+k23 = ''.join(emp_list)
+emp_list = []
+for i in range(120, 128):
+    emp_list.append(k10_subkey[i])
+k33 = ''.join(emp_list)
+
+# 対応する要素ごとに排他的論理和を取る
+xor = [ord(a) ^ ord(b) for a,b in zip(s00, k00)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s00 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s10, k10)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s10 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s20, k20)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s20 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s30, k30)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s30 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s01, k01)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s01 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s11, k11)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s11 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s21, k21)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s21 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s31, k31)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s31 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s02, k02)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s02 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s12, k12)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s12 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s22, k22)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s22 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s32, k32)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s32 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s03, k03)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s03 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s13, k13)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s13 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s23, k23)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s23 = ''.join(xor_new)
+xor = [ord(a) ^ ord(b) for a,b in zip(s33, k33)]
+xor_new = []
+for i in range(8):
+    xor_new.append(str(xor[i]))
+s33 = ''.join(xor_new)
+####################################################
+#################### 暗号化終了 ####################
+####################################################
+
+
+print('暗号化が終了しました。')
+print('暗号文は以下の通りです。')
+
+c = s00 + s10 + s20 + s30 + s01 + s11 + s21 + s31 + s02 + s12 + s22 + s32 + s03 + s13 + s23 + s33
+
+print(c)
+print('')
+
+# ここまで動作確認済み
+# 次やること : 復号
+
+
+
